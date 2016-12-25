@@ -1,0 +1,1 @@
+SELECT * FROM %TABLE_NAME% WHERE `_id` = ? LIMIT 1;

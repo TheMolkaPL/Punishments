@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>pl.themolka</groupId>
+    <artifactId>punishments</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>Punishments</name>
+    <description>Bans and other punishments</description>
+
+    <properties>
+        <plugin.main>pl.themolka.punishments.PunishmentsPlugin</plugin.main>
+        <plugin.minecraft>1.7.10</plugin.minecraft>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>pl.themolka</groupId>
+            <artifactId>commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+            <!-- Apply the last Git commit into the version -->
+            <!--<plugin>-->
+                <!--<groupId>pl.project13.maven</groupId>-->
+                <!--<artifactId>git-commit-id-plugin</artifactId>-->
+                <!--<version>2.1.0</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>revision</goal>-->
+                         <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.3</version>
+                <configuration>
+                    <artifactSet>
+                        <includes>
+                            <include>pl.themolka:commons</include>
+                            <include>org.slf4j:slf4j-api</include>
+                            <include>org.apache.commons:commons-lang3</include>
+                            <include>commons-io:commons-io</include>
+                            <include>org.jdom:jdom2</include>
+                            <include>com.zaxxer:HikariCP</include>
+                            <include>mysql:mysql-connector-java</include>
+                            <include>org.postgresql:postgresql</include>
+                            <include>org.xerial:sqlite-jdbc</include>
+                        </includes>
+                    </artifactSet>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

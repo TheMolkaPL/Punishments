@@ -1,0 +1,7 @@
+name: '${project.name}'
+version: 'MC${plugin.minecraft}: ${project.version}-${git.commit.id.abbrev}'
+description: '${project.description}'
+authors:
+- TheMolkaPL
+website: 'https://github.com/TheMolkaPL/Punishments'
+main: '${plugin.main}'

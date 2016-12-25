@@ -1,0 +1,1 @@
+INSERT INTO %TABLE_NAME% (`uuid`) VALUES (?) ON DUPLICATE KEY UPDATE `uuid` = ?;

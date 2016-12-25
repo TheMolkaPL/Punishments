@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS %TABLE_NAME% (
+        `_id` INT AUTO_INCREMENT,
+        `uuid` CHAR(36) UNIQUE NOT NULL,
+        PRIMARY KEY (`_id`)
+);

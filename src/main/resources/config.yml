@@ -1,0 +1,43 @@
+# Set color code
+color-code-prefix: '&'
+# Set to `true` to allow to color reason messages
+# WARNING! Additional software may not translate color codes!
+coloring-reasons: false
+# Expires datetime format
+#     HH - hour
+#     mm - minute
+#     dd - day
+#     MM - month
+#     yyyy - year
+expires-format: 'HH:mm dd-MM-yyyy'
+# Set to `true` to allow to punish punishers self
+self-punishing: false
+bans:
+    # Set to `false` to disable ban checking when players are logging in
+    login-listener: true
+    # Message showed when permanently banned player tries to log in
+    login-permanent-message:
+    - '&eYou are &4permanently &ebanned from this server by %PUNISHER%.'
+    - '&eReason: &f{REASON}'
+    # Message showed when temporary banned player tries to log in
+    login-temporary-message:
+    - '&eYou are &ctemporary &ebanned from the server by %PUNISHER%.'
+    - '&eReason: &f{REASON}'
+    - '&eExpires: &f%EXPIRES% &e(about &f%EXPIRES_ABOUT%&e)'
+# Database configuration
+#database:
+#    provider: CUSTOM
+#    properties:
+#    - 'dataSourceClassName = com.mysql.jdbc.jdbc2.optional.MysqlDataSource'
+#    - 'dataSource.serverName = localhost' # server
+#    - 'dataSource.port = 3306'
+#    - 'dataSource.databaseName = database' # database
+#    - 'dataSource.user = root' # username
+#    - 'dataSource.password = password' # password
+#    - 'dataSource.cachePrepStmts = true'
+#    - 'dataSource.prepStmtCacheSize = 250'
+#    - 'dataSource.prepStmtCacheSqlLimit = 2048'
+#    table-prefix: 'punishments_'
+database:
+    provider: SQLITE
+    table-prefix: 'punishments_'
